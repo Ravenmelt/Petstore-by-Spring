@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="StyleSheet" href="../css/jpetstore.css" type="text/css" media="screen">
+</head>
+<body>
+<div th:replace="common/top"></div>
+<div id="Catalog">
+    <form method="post" action="/order/confirm">
+
+        <table>
+            <tr>
+                <th colspan=2>Payment Details</th>
+            </tr>
+            <tr>
+                <td>Card Type:</td>
+                <td>
+                    <select name="order.cardType">
+                        <c:forEach  var="cardType" items="${sessionScope.creditCardTypes}">
+                            <option>${cardType }</option>
+                        </c:forEach>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Card Number:</td>
+                <td>
+                    <input type="text" name="creditCard" value="999 9999 9999 9999"/>* Use a fake number!
+                </td>
+            </tr>
+            <tr>
+                <td>Expiry Date (MM/YYYY):</td>
+                <td><input type="text" name="expiryDate" value="12/14"/></td>
+            </tr>
+            <tr>
+                <th colspan=2>Billing Address</th>
+            </tr>
+
+            <tr>
+                <td>First name:</td>
+                <td><input name="firstName" th:value="${session.account.firstName}" type="text"></td>
+            </tr>
+            <tr>
+                <td>Last name:</td>
+                <td><input name="lastName" th:value="${session.account.lastName}" type="text"></td>
+            </tr>
+            <tr>
+                <td>Address 1:</td>
+                <td><input name="address1" th:value="${session.account.address1}" type="text" size="40"></td>
+            </tr>
+            <tr>
+                <td>Address 2:</td>
+                <td><input name="address2" th:value="${session.account.address2}" type="text" size="40"></td>
+            </tr>
+            <tr>
+                <td>City:</td>
+                <td><input name="city" th:value="${session.account.city}" type="text"></td>
+            </tr>
+            <tr>
+                <td>State:</td>
+                <td><input name="state" th:value="${session.account.state}" type="text" size="4"></td>
+            </tr>
+            <tr>
+                <td>Zip:</td>
+                <td><input name="zip" th:value="${session.account.zip}" type="text" size="10"></td>
+            </tr>
+            <tr>
+                <td>Country:</td>
+                <td><input name="country" th:value="${session.account.country}" type="text" size="15"></td>
+            </tr>
+
+            <tr>
+                <td colspan=2>
+                    <input name="shippingAddressRequired"  type="checkbox">
+                    Ship to different address...
+                </td>
+            </tr>
+
+        </table>
+
+        <input  type="submit" name="newOrder" value="Continue" />
+
+    </form>
+</div>
+<div th:replace="common/bottom"></div>
+</body>
+</html>
