@@ -10,7 +10,9 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.sql.DataSource;
 import java.math.BigDecimal;
+import java.sql.Connection;
 import java.util.Iterator;
 import java.util.List;
 
@@ -26,6 +28,8 @@ class MypetstoreApplicationTests {
 //    @Autowired
 //    CartService cartService;
 
+    @Autowired
+    DataSource dataSource;
     @Test
     void contextLoads() {
     }
@@ -52,8 +56,18 @@ class MypetstoreApplicationTests {
 
         Account account1=accountService.getAccount("j2ee","j2ee");
         System.out.println(account1.getEmail()+","+account.getUsername()+"2");
-//
-
+    }
+    @Test
+    void testDatabase()
+    {
+        try {
+            Connection connection =dataSource.getConnection();
+            System.out.print(connection);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 
 
