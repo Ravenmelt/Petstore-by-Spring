@@ -1,10 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="StyleSheet" href="../css/jpetstore.css" type="text/css" media="screen"/>
 </head>
 <body>
+<header th:replace="common/top"></header>
+<div id="Content">
+    <div id="BackLink">
+        <a href="/cart/viewCart">Return to Shopping Cart</a>
+    </div>
 
+    <div id="Catalog">
+
+        <table>
+            <tr>
+                <td>
+                    <h2>Checkout Summary</h2>
+
+                    <table>
+
+                        <tr>
+                            <td><b>Item ID</b></td>
+                            <td><b>Product ID</b></td>
+                            <td><b>Description</b></td>
+                            <td><b>In Stock?</b></td>
+                            <td><b>Quantity</b></td>
+                            <td><b>List Price</b></td>
+                            <td><b>Total Cost</b></td>
+                        </tr>
+
+                        <tr th:each="cartItem:${cart.cartItems}">
+                            <td>
+                                <a th:href="'/catalog/viewItem?itemId='+${cartItem.item.itemId}"
+                                   th:text="${cartItem.item.itemId}"></a>
+                            </td>
+                            <td th:text="${cartItem.item.product.productId}"></td>
+                            <td th:text="${cartItem.item.attribute1}+${cartItem.item.product.name}"></td>
+                            <td th:text="${cartItem.inStock}"></td>
+                            <td th:text="${cartItem.quantity}"></td>
+
+                            <td th:text="'$'+${#numbers.formatDecimal(cartItem.item.listPrice,1,2)}"></td>
+                            <td th:text="'$'+${#numbers.formatDecimal(cartItem.total,1,2)}"></td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="7">
+                                <label th:text="'Sub Total:$'+${#numbers.formatDecimal(cart.subTotal,1,2)}"></label>
+                            </td>
+                        </tr>
+
+
+                        <!--                    <c:forEach var="cartItem" items="${sessionScope.cart.cartItems}">-->
+                        <!--                        <tr>-->
+                        <!--                            <td><-->
+                        <!--                                <a href="Item?itemId=${cartItem.item.itemId}">${cartItem.item.itemId}</a>-->
+                        <!--                            </td>-->
+                        <!--                            <td>${cartItem.item.product.productId}</td>-->
+                        <!--                            <td>-->
+                        <!--                                ${cartItem.item.attribute1} ${cartItem.item.attribute2}-->
+                        <!--                                ${cartItem.item.attribute3} ${cartItem.item.attribute4}-->
+                        <!--                                ${cartItem.item.attribute5} ${cartItem.item.product.name}-->
+                        <!--                            </td>-->
+                        <!--                            <td>${cartItem.inStock}</td>-->
+                        <!--                            <td>${cartItem.quantity}</td>-->
+                        <!--                            <td>-->
+                        <!--                                <fmt:formatNumber value="${cartItem.item.listPrice}" pattern="$#,##0.00" />-->
+                        <!--                            </td>-->
+                        <!--                            <td>-->
+                        <!--                                <fmt:formatNumber value="${cartItem.total}" pattern="$#,##0.00" />-->
+                        <!--                            </td>-->
+                        <!--                        </tr>-->
+                        <!--                    </c:forEach>-->
+                        <!--                    <tr>-->
+                        <!--                        <td colspan="7">-->
+                        <!--                            Sub Total: <fmt:formatNumber value="${sessionScope.cart.subTotal}" pattern="$#,##0.00" />-->
+                        <!--                        </td>-->
+                        <!--                    </tr>-->
+                    </table>
+
+                <td>&nbsp;</td>
+
+            </tr>
+        </table>
+
+        <a class="Button"  href="/cart/success">
+            OK
+        </a>
+
+    </div>
+</div>
+<footer th:replace="common/bottom"></footer>
 </body>
 </html>

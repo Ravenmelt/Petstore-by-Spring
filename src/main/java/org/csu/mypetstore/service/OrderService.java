@@ -69,4 +69,8 @@ public class OrderService {
         sequenceMapper.updateSequence((parameterObject));
         return sequence.getNextId();
     }
+
+    public void confirmOrder(Order order){
+        orderMapper.insertOrder(order);
+    }
 }

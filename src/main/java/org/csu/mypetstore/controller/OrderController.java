@@ -41,9 +41,12 @@ public class OrderController {
         CARD_TYPE_LIST = Collections.unmodifiableList(cardList);
     }
     @GetMapping("viewOrder")
-    public  String viewOrder(Model model){
+    public  String viewOrder(Order order,Model model){
 //        order = orderService.getOrder(order.getOrderId());
         if(accountService.getAccount(order.getUsername()).getUsername().equals(order.getUsername())){
+            orderService.insertOrder(order);
+            model.addAttribute("msg","Thank you, your order has been submitted.");
+
             return "order/ViewOrder";
         }else{
             order = null;

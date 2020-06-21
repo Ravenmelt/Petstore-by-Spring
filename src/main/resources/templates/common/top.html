@@ -11,23 +11,23 @@
 
             <div id="Logo">
                 <div id="LogoContent">
-                    <a href="Main"><img src="../images/logo-topbar.gif" /></a>
+                    <a href=""><img src="../images/logo-topbar.gif" /></a>
                 </div>
             </div>
             <div id="Menu">
                 <div id="MenuContent">
-                    <a href="Cart"><img align="middle" name="img_cart"
+                    <a href="/cart/viewCart"><img align="middle" name="img_cart"
                                         src="../images/cart.gif" /></a> <img align="middle"
                                                                           src="../images/separator.gif" />
                     <c:if test="${sessionScope.account == null}">
-                        <a href="SignOnForm">Sign In</a>
+                        <a href="/account/signonForm">Sign In</a>
                     </c:if>
                     <c:if test="${sessionScope.account != null}">
-                        <a href="SignOff">Sign Out</a>
+                        <a href="/account/signoff">Sign Out</a>
                     </c:if>
                     <img align="middle" src="../images/separator.gif" />
                     <c:if test="${sessionScope.account != null}">
-                        <a href="EditAccountForm">My Account</a>
+                        <a href="/account/editAccountForm">My Account</a>
                     </c:if>
                     <img align="middle" src="../images/separator.gif" />
                     <a href="http://www.w3school.com.cn/index.html">?</a>
@@ -36,13 +36,13 @@
 
             <div id="Search">
                 <div id="SearchContent">
-                    <form action="search" method="post">
+                    <form action="/catalog/searchProducts" method="post">
                         <input type="text" id="keyword" name="keyword" size="14" />
                         <input type="submit"  name="searchProducts" value="Search" />
                         <div class="auto hidden" id="auto">
                             <div class="auto_out"></div>
                             <div class="auto_out"></div>
-                            <script src="js/searchProduct.js"></script>
+                           <script src="js/searchProduct.js"></script>
                         </div>
                     </form>
                 </div>

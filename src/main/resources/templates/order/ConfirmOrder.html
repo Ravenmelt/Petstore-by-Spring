@@ -21,8 +21,8 @@
         <table>
             <tbody>
             <tr>
-                <th align="center" colspan="2"><font size="4"><b th:text="'Order #'+${session.order.getOrderId()}">Order</b></font>
-                    <br> <font size="3"><b th:text="${session.order.orderDate}"> 2014/03/23 10:46:43</b></font></th>
+                <th align="center" colspan="2"><font size="4"><b th:text="'Order #'+${order.getOrderId()}">Order</b></font>
+                    <br> <font size="3"><b th:text="${order.orderDate}"> 2014/03/23 10:46:43</b></font></th>
             </tr>
 
             <tr>
@@ -30,70 +30,70 @@
             </tr>
             <tr>
                 <td>First name:</td>
-                <td th:text="${session.order.billToFirstName}">ABC</td>
+                <td th:text="${order.billToFirstName}">ABC</td>
             </tr>
             <tr>
                 <td>Last name:</td>
-                <td  th:text="${session.order.billToLastName}">XYX</td>
+                <td  th:text="${order.billToLastName}">XYX</td>
             </tr>
             <tr>
                 <td>Address 1:</td>
-                <td th:text="${session.order.billAddress1}">901 San Antonio Road</td>
+                <td th:text="${order.billAddress1}">901 San Antonio Road</td>
             </tr>
             <tr>
                 <td>Address 2:</td>
-                <td th:text="${session.order.billAddress2}">MS UCUP02-206</td>
+                <td th:text="${order.billAddress2}">MS UCUP02-206</td>
             </tr>
             <tr>
                 <td>City:</td>
-                <td th:text="${session.order.billCity}">Palo Alto</td>
+                <td th:text="${order.billCity}">Palo Alto</td>
             </tr>
             <tr>
                 <td>State:</td>
-                <td th:text="${session.order.billState}">CA</td>
+                <td th:text="${order.billState}">CA</td>
             </tr>
             <tr>
                 <td>Zip:</td>
-                <td th:text="${session.order.billZip}">94303</td>
+                <td th:text="${order.billZip}">94303</td>
             </tr>
             <tr>
                 <td>Country:</td>
-                <td th:text="${session.order.billCountry}">USA</td>
+                <td th:text="${order.billCountry}">USA</td>
             </tr>
             <tr>
                 <th colspan="2">Shipping Address</th>
             </tr>
             <tr>
                 <td>First name:</td>
-                <td th:text="${session.order.shipToFirstName}">ABC</td>
+                <td th:text="${order.shipToFirstName}">ABC</td>
             </tr>
             <tr>
                 <td>Last name:</td>
-                <td th:text="${session.order.shipToLastName}">XYX</td>
+                <td th:text="${order.shipToLastName}">XYX</td>
             </tr>
             <tr>
                 <td>Address 1:</td>
-                <td th:text="${session.order.shipAddress1}">901 San Antonio Road</td>
+                <td th:text="${order.shipAddress1}">901 San Antonio Road</td>
             </tr>
             <tr>
                 <td>Address 2:</td>
-                <td th:text="${session.order.shipAddress2}">MS UCUP02-206</td>
+                <td th:text="${order.shipAddress2}">MS UCUP02-206</td>
             </tr>
             <tr>
                 <td>City:</td>
-                <td th:text="${session.order.shipCity}">Palo Alto</td>
+                <td th:text="${order.shipCity}">Palo Alto</td>
             </tr>
             <tr>
                 <td>State:</td>
-                <td th:text="${session.order.shipState}">CA</td>
+                <td th:text="${order.shipState}">CA</td>
             </tr>
             <tr>
                 <td>Zip:</td>
-                <td th:text="${session.order.shipZip}">94303</td>
+                <td th:text="${order.shipZip}">94303</td>
             </tr>
             `<tr>
                 <td>Country:</td>
-                <td th:text="${session.order.shipCountry}">USA</td>
+                <td th:text="${order.shipCountry}">USA</td>
             </tr>
 
             </tbody>
